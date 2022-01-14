@@ -1,0 +1,5 @@
+.main {
+  background-color: var(--color-primary);
+  padding: 30px;
+  bonder-radius: 10px;
+}
