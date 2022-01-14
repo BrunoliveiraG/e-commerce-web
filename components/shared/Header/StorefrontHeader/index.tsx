@@ -16,7 +16,7 @@ const StorefrontHeader: React.FC = () => {
         <Row>
           <Col md={6} className="mb-4 mb-md-0">
             <InputGroup>
-              <FormControl placeholder="Pesquisar produto" className={styles.input} />
+              <FormControl placeholder="Search product" className={styles.input} />
             </InputGroup>
           </Col>
 
