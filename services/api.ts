@@ -4,7 +4,7 @@ import ApiData from '../dtos/ApiData';
 
 const api = axios.create({
   baseURL: 'http://localhost:3000'
-})
+});
 
 api.interceptors.response.use(res => {
   if(res.headers['access-token']) {

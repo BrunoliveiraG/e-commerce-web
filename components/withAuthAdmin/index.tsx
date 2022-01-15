@@ -10,7 +10,7 @@ const withAuthAdmin = (Component) => {
   const Auth = (props) => {
     const router = useRouter();
     const loggedUser: User = useSelector((state: AuthState) => state.auth.loggedUser);
-    const apiData: ApiData = JSON.parse(Cookie.get('@api-data'));
+    const apiData: ApiData = JSON.parse(JSON.stringify(Cookie.get('@api-data')));
 
     if(!loggedUser ||
       loggedUser.profile !== 'admin' ||
@@ -23,11 +23,11 @@ const withAuthAdmin = (Component) => {
     return <Component {...props} />;
   }
 
-  return Auth;
-
   if(Component.getServerSideProps) {
     Auth.getServerSideProps = Component.getServerSideProps;
   }
+
+  return Auth;
 }
 
 
