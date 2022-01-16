@@ -55,8 +55,8 @@ const LoginForm: React.FC<LoginProps> = ({ titlePhrase, buttonPhrase }) => {
       dispatch(setLoggedUser(user));
 
       toast.info('Login Successful');
-
       router.push(user.profile === 'admin' ? '/Admin/' : '/')
+
     } catch (err) {
       toast.error('Wrong e-mail or password!');
     }

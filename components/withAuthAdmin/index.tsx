@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
-import Cookie from 'js-cookie';
+import Cookies from 'js-cookie';
 
 import AuthState from '../../dtos/AuthState';
 import User from '../../dtos/User';
@@ -10,7 +10,11 @@ const withAuthAdmin = (Component) => {
   const Auth = (props) => {
     const router = useRouter();
     const loggedUser: User = useSelector((state: AuthState) => state.auth.loggedUser);
-    const apiData: ApiData = JSON.parse(JSON.stringify(Cookie.get('@api-data')));
+    let apiData: ApiData;
+    const apiCookie = (Cookies.get('@api-data'));
+    if (apiCookie) {
+      apiData = JSON.parse(apiCookie);
+    }
 
     if(!loggedUser ||
       loggedUser.profile !== 'admin' ||

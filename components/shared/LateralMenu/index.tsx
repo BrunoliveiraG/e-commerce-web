@@ -70,7 +70,7 @@ const LateralMenu: React.FC = () => {
         <Link href="/Admin/#">
           <a>
             <FontAwesomeIcon icon={faSignOutAlt} color="var(--color-gray-light)" className="mr-3" />
-            Exit
+            Leave
             <hr />
           </a>
         </Link>
