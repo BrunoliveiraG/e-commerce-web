@@ -7,7 +7,6 @@ const api = axios.create({
 });
 
 api.interceptors.response.use(res => {
-  console.log("test");
   if(res.headers['access-token']) {
     const apiData: ApiData = {
       'access-token': res.headers['access-token'],
@@ -16,21 +15,10 @@ api.interceptors.response.use(res => {
       'token-type': res.headers['token-type'],
       uid: res.headers.uid
     };
-    console.log("antes");
-    console.log(api.defaults.data);
 
-    api.defaults.data = apiData;
-    console.log("apiData")
-    console.log(apiData)
-    console.log("COOKIES")
-    console.log(Cookies.get())
-    console.log("COOKIE SET")
-    console.log()
-    Cookies.set('@api-data', apiData);
-    console.log("COOKIES DEPOIS")
-    console.log(Cookies.get())
-    console.log("O testeeeee")
-    console.log(Cookies.get('@api-data'));
+    api.defaults.headers = apiData;
+
+    Cookies.set('@api-data', JSON.stringify(apiData));
   }
 
   return res;
@@ -43,7 +31,7 @@ api.interceptors.request.use(req => {
     if (apiCookie) {
       apiData = JSON.parse(apiCookie);
     }
-    req.data = apiData;
+    req.headers = apiData;
   }
 
   return req;
