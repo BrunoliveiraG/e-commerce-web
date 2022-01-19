@@ -6,7 +6,7 @@ import AdminComponent from '../../components/shared/AdminComponent';
 const Home: React.FC = () => {
   return (
     <AdminComponent>
-      <h1>Parabéns, você acessou o painel! \o/</h1>
+      <h1>Admin panel</h1>
     </AdminComponent>
   )
 }
