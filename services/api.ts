@@ -65,14 +65,13 @@ api.interceptors.response.use(res => {
   });
 
 api.interceptors.request.use(req => {
+  req.headers = { ContentType: 'application/json' }
   if (req.url.includes('admin')) {
-
-    let apiData: ApiData;
     const apiCookie = (Cookie.get('@api-data'));
 
-    if (apiCookie) {
-      apiData = JSON.parse(apiCookie);
-      req.headers = apiData;
+    if(apiCookie){
+      const apiData: ApiData = JSON.parse(apiCookie);
+      req.headers = { ...apiData, ...req.headers}
     }
   }
   return req;
