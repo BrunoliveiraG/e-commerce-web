@@ -19,13 +19,13 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ type = 'normal', product }) =
         />
       </div>
 
-      <div className={styles.product_info}>
+      <div className={styles.product_details}>
         <div>
           <p>
             {product.name}
           </p>
           <p>
-            {product.description.slice(0, 26) + '...'}
+            {product.description}
           </p>
         </div>
 

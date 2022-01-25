@@ -1,15 +1,15 @@
-import { Row, Col } from 'react-bootstrap';
-import StyledButton from '../../shared/StyledButton';
-import Link from 'next/link';
+import { Row, Col, Button } from 'react-bootstrap';
 import styles from '../../../styles/HighlightedProducts.module.css';
 import ProductInfo from '../../shared/ProductInfo';
+import ProductHome from "../../../dtos/ProductHome";
 
 interface HighlightedProductsProps {
   title: string;
   type?: string;
+  products: ProductHome[];
 }
 
-const HighlightedProducts: React.FC<HighlightedProductsProps> = ({ title, type }) => {
+const HighlightedProducts: React.FC<HighlightedProductsProps> = ({ title, type, products }) => {
   return (
     <div className={styles.products}>
       <div className={styles.products_header}>
@@ -17,29 +17,28 @@ const HighlightedProducts: React.FC<HighlightedProductsProps> = ({ title, type }
 
         <hr className={styles.line} />
 
-        <Link href="#">
-          <a>
-            <StyledButton action="See more" type_button="blue" />
-          </a>
-        </Link>
+        <Button
+          className={
+            `${type === 'highlighted' ? styles.highlighted_button : styles.normal_button}`
+          }
+        >
+          See More
+        </Button>
       </div>
 
       <Row>
-        <Col md={3}>
-          <ProductInfo type={type} />
-        </Col>
-
-        <Col md={3}>
-          <ProductInfo type={type} />
-        </Col>
-
-        <Col md={3}>
-          <ProductInfo type={type} />
-        </Col>
-
-        <Col md={3}>
-          <ProductInfo type={type} />
-        </Col>
+        {
+          products?.map(
+            product => (
+              <Col md={3} key={product.id}>
+                <ProductInfo
+                  type={type}
+                  product={product}
+                />
+              </Col>
+            )
+          )
+        }
       </Row>
     </div>
   )
