@@ -11,7 +11,7 @@ const AdminFooter: React.FC = () => {
         </Col>
 
         <Col>
-          <span className="float-right">onebitcode.com • contato@onebitcode.com</span>
+          <span className="float-end">onebitcode.com • contato@onebitcode.com</span>
         </Col>
       </Row>
     </Container>

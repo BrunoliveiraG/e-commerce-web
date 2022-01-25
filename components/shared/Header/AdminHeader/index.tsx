@@ -23,7 +23,7 @@ const AdminHeader: React.FC<AdminHeaderProps> = ({ name }) => {
       </Col>
 
       <Col lg={6} xs>
-        <div className="float-right">
+        <div className="float-end">
           <span className={styles.name}>{ name }</span>
           <FontAwesomeIcon icon={faUserCircle} color="var(--color-gray-light)" />
         </div>

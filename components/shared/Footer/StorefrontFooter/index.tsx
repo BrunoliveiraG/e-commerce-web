@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faYoutube, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import Logo from '../../Logo';
 import Image from "next/image";
+import Link from "next/link";
 
 
 const StorefrontFooter: React.FC = () => {
@@ -19,25 +20,45 @@ const StorefrontFooter: React.FC = () => {
               </Col>
 
               <Col lg={7} md={12} className="mb-4 mb-lg-0">
-                <Row>
+                <Row className={styles.social_medias}>
                   <Col lg={1} xs={2}>
-                    <FontAwesomeIcon icon={faFacebookF}  />
+                    <Link href="https://www.facebook.com">
+                      <a target="_blank">
+                        <FontAwesomeIcon icon={faFacebookF}  />
+                      </a>
+                    </Link>
                   </Col>
 
                   <Col lg={1} xs={2}>
-                    <FontAwesomeIcon icon={faInstagram} />
+                    <Link href="https://www.instagram.com">
+                      <a target="_blank">
+                        <FontAwesomeIcon icon={faInstagram} />
+                      </a>
+                    </Link>
                   </Col>
 
                   <Col lg={1} xs={2}>
-                    <FontAwesomeIcon icon={faYoutube}  />
+                    <Link href="https://www.youtube.com">
+                      <a target="_blank">
+                        <FontAwesomeIcon icon={faYoutube}  />
+                      </a>
+                    </Link>
                   </Col>
 
                   <Col lg={1} xs={2}>
-                    <FontAwesomeIcon icon={faTwitter}  />
+                    <Link href="https://www.twitter.com">
+                      <a target="_blank">
+                        <FontAwesomeIcon icon={faTwitter}  />
+                      </a>
+                    </Link>
                   </Col>
 
                   <Col lg={1} xs={2}>
-                    <FontAwesomeIcon icon={faLinkedin}  />
+                    <Link href="https://www.linkedin.com/in/bruno-oliveira-0b270919b/">
+                      <a target="_blank">
+                        <FontAwesomeIcon icon={faLinkedin}  />
+                      </a>
+                    </Link>
                   </Col>
                 </Row>
               </Col>
@@ -47,19 +68,39 @@ const StorefrontFooter: React.FC = () => {
           <Col lg={{span: 4, offset: 0}} xs={{span: 8, offset: 2}}>
             <Row>
               <Col>
-                Contact
+                <Link href="https://www.linkedin.com/in/bruno-oliveira-0b270919b/">
+                  <a target="_blank">
+                    Contact
+                  </a>
+                </Link>
+
               </Col>
 
               <Col>
-                About
+                <Link href="https://www.linkedin.com/in/bruno-oliveira-0b270919b/">
+                  <a target="_blank">
+                    About
+                  </a>
+                </Link>
+
               </Col>
 
               <Col>
-                Blog
+                <Link href="https://www.linkedin.com/in/bruno-oliveira-0b270919b/">
+                  <a target="_blank">
+                    Blog
+                  </a>
+                </Link>
+
               </Col>
 
               <Col>
-                FAQ
+                <Link href="https://www.linkedin.com/in/bruno-oliveira-0b270919b/">
+                  <a target="_blank">
+                    FAQ
+                  </a>
+                </Link>
+
               </Col>
             </Row>
           </Col>
@@ -68,16 +109,20 @@ const StorefrontFooter: React.FC = () => {
         <hr className={styles.line}/>
 
         <Row>
-          <Col lg={{span: 2, offset: 0}} xs={{span: 8, offset: 2}}>
+          <Col className={styles.logo} lg={{span: 2, offset: 0}} xs={{span: 8, offset: 2}}>
             <Logo />
           </Col>
 
-          <Col lg={{span: 6, offset: 1}} xs={12}>
+          <Col className="text-center" lg={{span: 6, offset: 1}} xs={12}>
             <p style={{'color': 'var(--color-gray-light)'}}>onebitcode.com • contato@onebitcode.com</p>
           </Col>
 
           <Col lg={{span: 2, offset: 1}} xs={{span: 6, offset: 3}}>
-            <Image src="/assets/logo-bootcamp.png" alt="Logo Bootcamp" width={240} height={70} />
+            <Link href="https://www.linkedin.com/in/bruno-oliveira-0b270919b/">
+              <a target="_blank">
+                <Image src="/assets/logo-bootcamp.png" alt="Logo Bootcamp" width={240} height={70} />
+              </a>
+            </Link>
           </Col>
         </Row>
       </Col>
