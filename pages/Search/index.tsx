@@ -1,5 +1,5 @@
 import MainComponent from '../../components/shared/MainComponent';
-import { InputGroup, FormControl, Row, Col } from 'react-bootstrap';
+import {InputGroup, FormControl, Row, Col} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import styles from '../../styles/Search.module.css';
@@ -11,13 +11,14 @@ import ProductSearchService from "../../util/ProductSearchService";
 import CategoriesService from "../../services/categories";
 import {toast} from "react-toastify";
 import {useState, useEffect} from "react";
+import Pagination from "../../components/shared/Pagination";
 
 const defaultUrl = '/storefront/v1/products';
 
 const Search: React.FC = () => {
   const router = useRouter();
   const {search: searchRouter, page, category, price, order: orderRouter, direction } = router.query;
-  const [search, setSearch] = useState(searchRouter?.toString());
+  const [search, setSearch] = useState(searchRouter?.toString() || '');
   const [order, setOrder] = useState(() => {
     if(!!orderRouter) {
       return `${orderRouter.toString()}-${router.query.direction.toString()}`;
@@ -68,7 +69,7 @@ const Search: React.FC = () => {
 
   const handleSearch = (): void => {
     router.push(`
-      /Search${ProductSearchService.execute({ search })}
+      /Search?search=${search}&lentgh=12&page=1&order=price&direction=asc
     `);
   }
 
@@ -143,8 +144,8 @@ const Search: React.FC = () => {
               >
                 <option value="price-asc">Cheapest</option>
                 <option value="price-desc">Most expensive</option>
-                <option value="release_date-asc">Latest releases</option>
-                <option value="release_date-desc">Oldest releases</option>
+                <option value="release_date-desc">Latest releases</option>
+                <option value="release_date-asc">Oldest releases</option>
               </select>
             </div>
           </Col>
@@ -222,6 +223,14 @@ const Search: React.FC = () => {
           )
         }
       </Row>
+
+      {
+        data?.meta?.total > 0 &&
+        <Pagination
+          className={styles.pagination}
+          {...data?.meta}
+        />
+      }
 
 
     </MainComponent>
