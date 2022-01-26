@@ -19,6 +19,11 @@
 }
 
 .input, .input:focus {
+    color: white;
     background-color: var(--color-background);
     border: none;
+}
+
+.hidden {
+    display: none;
 }

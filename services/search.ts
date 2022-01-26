@@ -1,9 +1,9 @@
-import api from "./api";
+import api from './api';
 
 import ProductSearch from '../dtos/ProductSearch';
-import Meta from "../dtos/Meta";
+import Meta from '../dtos/Meta';
 
-interface SearchIndexData{
+interface SearchIndexData {
   products: ProductSearch[];
   meta: Meta;
 }
